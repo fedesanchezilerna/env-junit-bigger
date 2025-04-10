@@ -1,7 +1,9 @@
 package bigger;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BiggerTest {
 
@@ -46,5 +48,11 @@ public class BiggerTest {
         int expected = -16;
 
         assertEquals(expected, Bigger.bigger(array));
+    }
+
+    @Test
+    public void testEmptyArray() {
+        int[] array = {};
+        assertThrows(NullPointerException.class, () -> Bigger.bigger(array));
     }
 }
